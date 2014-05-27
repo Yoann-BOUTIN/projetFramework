@@ -1,48 +1,26 @@
 require 'spec_helper'
 
 describe "StaticPages" do
+  subject { page }
   describe "Home page" do
-  	it "should have the content 'Projet BOUTIN Yoann'" do
-  		visit '/static_pages/home'
-  		expect(page).to have_content('Projet BOUTIN Yoann')
-  	end
-  	it "should have the base title" do
-        visit '/static_pages/home'
-        expect(page).to have_title("Ruby on Rails")
-    end
-    it "should not have a custom page title" do
-      visit '/static_pages/home'
-      expect(page).not_to have_title('| Acceuil')
-    end
+    before { visit root_path }
+
+    it { should have_content('Projet BOUTIN Yoann') }
+    it { should have_title(full_title('')) }
+    it { should_not have_title('| Acceuil') }
   end
   describe "Help page" do
+    before { visit help_path }
 
-    it "should have the content 'Aide'" do
-      visit '/static_pages/help'
-      expect(page).to have_content('Aide')
-    end
-    it "should have the base title" do
-        visit '/static_pages/help'
-        expect(page).to have_title("Ruby on Rails")
-    end
-    it "should not have a custom page title" do
-      visit '/static_pages/help'
-      expect(page).not_to have_title('| Aide')
-    end
+    it { should have_content('Aide') }
+    it { should have_title(full_title('')) }
+    it { should_not have_title('| Aide') }
   end
   describe "About page" do
+    before { visit about_path }
 
-    it "should have the content 'A propos'" do
-      visit '/static_pages/about'
-      expect(page).to have_content('A propos')
-    end
-    it "should have the base title" do
-        visit '/static_pages/about'
-        expect(page).to have_title("Ruby on Rails")
-    end
-    it "should not have a custom page title" do
-      visit '/static_pages/about'
-      expect(page).not_to have_title('| A propos')
-    end
+    it { should have_content('A propos') }
+    it { should have_title(full_title('')) }
+    it { should_not have_title('| A propos') }
   end
 end
