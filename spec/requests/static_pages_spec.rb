@@ -2,13 +2,17 @@ require 'spec_helper'
 
 describe "StaticPages" do
   describe "Home page" do
-	it "should have the content 'Projet BOUTIN Yoann'" do
-		visit '/static_pages/home'
-		expect(page).to have_content('Projet BOUTIN Yoann')
-	end
-	it "should have the title 'Acceuil'" do
+  	it "should have the content 'Projet BOUTIN Yoann'" do
+  		visit '/static_pages/home'
+  		expect(page).to have_content('Projet BOUTIN Yoann')
+  	end
+  	it "should have the base title" do
+        visit '/static_pages/home'
+        expect(page).to have_title("Ruby on Rails")
+    end
+    it "should not have a custom page title" do
       visit '/static_pages/home'
-      expect(page).to have_title("Ruby on Rails | Acceuil")
+      expect(page).not_to have_title('| Acceuil')
     end
   end
   describe "Help page" do
@@ -17,9 +21,13 @@ describe "StaticPages" do
       visit '/static_pages/help'
       expect(page).to have_content('Aide')
     end
-    it "should have the title 'Aide'" do
+    it "should have the base title" do
+        visit '/static_pages/help'
+        expect(page).to have_title("Ruby on Rails")
+    end
+    it "should not have a custom page title" do
       visit '/static_pages/help'
-      expect(page).to have_title("Ruby on Rails | Aide")
+      expect(page).not_to have_title('| Aide')
     end
   end
   describe "About page" do
@@ -28,9 +36,13 @@ describe "StaticPages" do
       visit '/static_pages/about'
       expect(page).to have_content('A propos')
     end
-    it "should have the title 'A propos'" do
+    it "should have the base title" do
+        visit '/static_pages/about'
+        expect(page).to have_title("Ruby on Rails")
+    end
+    it "should not have a custom page title" do
       visit '/static_pages/about'
-      expect(page).to have_title("Ruby on Rails | A propos")
+      expect(page).not_to have_title('| A propos')
     end
   end
 end
