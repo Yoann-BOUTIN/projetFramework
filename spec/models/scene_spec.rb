@@ -15,6 +15,7 @@ describe Scene do
   it { should respond_to(:personne) }
   it { should respond_to(:user_id) }
   it { should respond_to(:user) }
+  it { should respond_to(:relationships) }
   its(:user) { should eq user }
 
   it { should be_valid }
