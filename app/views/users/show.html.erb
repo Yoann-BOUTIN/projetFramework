@@ -17,4 +17,22 @@
       <%= will_paginate @anecdotes %>
     <% end %>
   </div>
+  <div class="span8">
+    <% if @user.personnes.any? %>
+      <h3>Personnes (<%= @user.personnes.count %>)</h3>
+      <ol class="personnes">
+        <%= render @personnes %>
+      </ol>
+      <%= will_paginate @personnes %>
+    <% end %>
+  </div>
+  <div class="span8">
+    <% if @user.scenes.any? %>
+      <h3>Scenes (<%= @user.scenes.count %>)</h3>
+      <ol class="scenes">
+        <%= render @scenes %>
+      </ol>
+      <%= will_paginate @scenes %>
+    <% end %>
+  </div>
 </div>

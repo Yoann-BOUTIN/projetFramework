@@ -1,0 +1,12 @@
+<li id="<%= feed_item_personne.id %>">
+  <%= link_to gravatar_for(feed_item_personne.user), feed_item_personne.user %>
+  <span class="user">
+    <%= link_to feed_item_personne.user.name, feed_item_personne.user %>
+  </span>
+  <span class="nom">Nom : <%= feed_item_personne.nom %></span>
+  <span class="first_chap">Premier chapitre : <%= feed_item_personne.first_chap %></span>
+  <span class="scene">Scene : <%= feed_item_personne.scene %></span>
+  <span class="timestamp">
+    Publié il y a <%= time_ago_in_words(feed_item_personne.created_at) %> .
+  </span>
+</li>

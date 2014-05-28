@@ -1,0 +1,8 @@
+<li>
+  <span class="nom">Nom : <%= personne.nom %></span>
+  <span class="first_chap">Premier chapitre : <%= personne.first_chap %></span>
+  <span class="scene">Scene : <%= personne.scene %></span>
+  <span class="timestamp">
+    Publié il y a <%= time_ago_in_words(personne.created_at) %> .
+  </span>
+</li>

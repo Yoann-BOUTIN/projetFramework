@@ -1,0 +1,13 @@
+<%= form_for(@personne) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_area :nom, placeholder: "Nom..." %>
+  </div>
+  <div class="field">
+    <%= f.text_area :first_chap, placeholder: "Premier chapitre d'apparition..." %>
+  </div>
+  <div class="field">
+    <%= f.text_area :scene, placeholder: "Scene(s)..." %>
+  </div>
+  <%= f.submit "Valider", class: "btn btn-large btn-primary" %>
+<% end %>

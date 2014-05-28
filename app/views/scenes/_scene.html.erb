@@ -1,0 +1,9 @@
+<li>
+  <span class="lieu">Lieu : <%= scene.lieu %></span>
+  <span class="date">Date : <%= scene.date %></span>
+  <span class="recit">Recit : <%= scene.recit %></span>
+  <span class="personne">Personne(s) : <%= scene.personne %></span>
+  <span class="timestamp">
+    Publié il y a <%= time_ago_in_words(scene.created_at) %> .
+  </span>
+</li>

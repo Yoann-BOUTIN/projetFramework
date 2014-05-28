@@ -17,11 +17,19 @@ class StaticPagesController < ApplicationController
   end
 
   def scene
+    if signed_in?
+      @scene  = current_user.scenes.build
+      @feed_items_scene = current_user.feed_scene.paginate(page: params[:page])
+    end
   end
 
   def chapitre
   end
 
   def personne
+    if signed_in?
+      @personne  = current_user.personnes.build
+      @feed_items_personne = current_user.feed_personne.paginate(page: params[:page])
+    end
   end
 end

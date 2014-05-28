@@ -1,0 +1,16 @@
+<%= form_for(@scene) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_area :lieu, placeholder: "Lieu..." %>
+  </div>
+  <div class="field">
+    <%= f.text_area :date, placeholder: "Date..." %>
+  </div>
+  <div class="field">
+    <%= f.text_area :recit, placeholder: "Recit..." %>
+  </div>
+  <div class="field">
+    <%= f.text_area :personne, placeholder: "Personne(s)..." %>
+  </div>
+  <%= f.submit "Valider", class: "btn btn-large btn-primary" %>
+<% end %>
