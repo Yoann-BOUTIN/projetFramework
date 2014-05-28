@@ -1,9 +1,25 @@
-<div class="center hero-unit">
-  <h1>Projet BOUTIN Yoann</h1>
+<% if signed_in? %>
+  <div class="center hero-unit">
+    <h1>Bienvenue !</h1>
+    <%= link_to "Chapitre", chapitre_path,
+                                class: "btn btn-large btn-primary" %>
+    <%= link_to "Scene", scene_path,
+                                class: "btn btn-large btn-primary" %>
+    <%= link_to "Anecdote", anecdote_path,
+                                class: "btn btn-large btn-primary" %>
+      
+    <%= link_to "Personne", personne_path,
+                                class: "btn btn-large btn-primary" %>                        
+  </div>
+<% else %>
+  <div class="center hero-unit">
+    <h1>Projet BOUTIN Yoann</h1>
 
-  <h2>
-    Bienvenue sur la page principale du projet de Framework de BOUTIN Yoann.
-  </h2>
+    <h2>
+      Bienvenue sur la page principale du projet de Framework de BOUTIN Yoann.
+    </h2>
 
-  <%= link_to "Inscription!", signup_path, class: "btn btn-large btn-primary" %>
-</div>
+    <%= link_to "Inscription!", signup_path,
+                                class: "btn btn-large btn-primary" %>
+  </div>
+<% end %>

@@ -1,0 +1,8 @@
+<li>
+  <span class="sujet"><%= anecdote.sujet %></span>
+  <span class="theme"><%= anecdote.theme %></span>
+  <span class="texte"><%= anecdote.texte %></span>
+  <span class="timestamp">
+    Publié il y a <%= time_ago_in_words(anecdote.created_at) %> .
+  </span>
+</li>

@@ -1,0 +1,27 @@
+<% if signed_in? %>  
+  <div class="row">
+    <aside class="span4">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+      <section>
+        <%= render 'shared/anecdote_form' %>
+      </section>
+    </aside>
+    <div class="span8">
+      <h3>Anecdotes Feed</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+<% else %>
+  <div class="center hero-unit">
+    <h1>Projet BOUTIN Yoann</h1>
+
+    <h2>
+      Bienvenue sur la page principale du projet de Framework de BOUTIN Yoann.
+    </h2>
+
+    <%= link_to "Inscription!", signup_path,
+                                class: "btn btn-large btn-primary" %>
+  </div>
+<% end %>

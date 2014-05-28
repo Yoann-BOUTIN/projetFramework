@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140527201147) do
+ActiveRecord::Schema.define(version: 20140528124356) do
+
+  create_table "anecdotes", force: true do |t|
+    t.string   "sujet"
+    t.string   "theme"
+    t.string   "texte"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "anecdotes", ["sujet", "user_id"], name: "index_anecdotes_on_sujet_and_user_id"
 
   create_table "users", force: true do |t|
     t.string   "name"

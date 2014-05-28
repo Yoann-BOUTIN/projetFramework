@@ -1,6 +1,7 @@
 BoutinYoannFrameworkProject::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :anecdotes, only: [:create]
   root 'static_pages#home'
   match '/edit_user', to: 'users#edit', via: 'get'
   match '/signup', to: 'users#new', via: 'get'
@@ -8,6 +9,10 @@ BoutinYoannFrameworkProject::Application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/help', to: 'static_pages#help' , via: 'get'
   match '/about', to: 'static_pages#about' , via: 'get'
+  match '/personne', to: 'static_pages#personne', via: 'get'
+  match '/chapitre', to: 'static_pages#chapitre', via: 'get'
+  match '/scene', to: 'static_pages#scene', via: 'get'
+  match '/anecdote', to: 'static_pages#anecdote', via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
