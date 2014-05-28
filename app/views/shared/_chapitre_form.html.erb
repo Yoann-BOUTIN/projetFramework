@@ -1,0 +1,19 @@
+<%= form_for(@chapitre) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_area :num_chap, placeholder: "Numéro du chapitre..." %>
+  </div>
+  <div class="field">
+    <%= f.text_area :titre, placeholder: "Titre..." %>
+  </div>
+  <div class="field">
+    <%= f.text_area :scene, placeholder: "Scène(s)..." %>
+  </div>
+  <div class="field">
+    <%= f.text_area :anecdote, placeholder: "Anecdote(s)..." %>
+  </div>
+  <div class="field">
+    <%= f.text_area :personne, placeholder: "Personne(s)..." %>
+  </div>
+  <%= f.submit "Valider", class: "btn btn-large btn-primary" %>
+<% end %>

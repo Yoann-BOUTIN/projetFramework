@@ -8,7 +8,8 @@ class ScenesController < ApplicationController
       redirect_to :back
     else
       @feed_items_scene = []
-      render 'static_pages/home'
+      flash[:error] = "Vous devez au moins remplir les champs du lieu, de la date et du recit !"
+      redirect_to :back
     end
   end
 

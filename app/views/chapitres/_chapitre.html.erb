@@ -1,0 +1,10 @@
+<li>
+  <span class="num_chap">Chapitre numéro <%= chapitre.num_chap %></span>
+  <span class="titre">Titre : <%= chapitre.titre %></span>
+  <span class="scene">Scene(s) : <%= chapitre.scene %></span>
+  <span class="anecdote">Anecdote(s) : <%= chapitre.anecdote %></span>
+  <span class="personne">Personne(s) : <%= chapitre.personne %></span>
+  <span class="timestamp">
+    Publié il y a <%= time_ago_in_words(chapitre.created_at) %> .
+  </span>
+</li>

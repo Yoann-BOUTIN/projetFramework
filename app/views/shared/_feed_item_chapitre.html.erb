@@ -1,0 +1,14 @@
+<li id="<%= feed_item_chapitre.id %>">
+  <%= link_to gravatar_for(feed_item_chapitre.user), feed_item_chapitre.user %>
+  <span class="user">
+    <%= link_to feed_item_chapitre.user.name, feed_item_chapitre.user %>
+  </span>
+  <span class="num_chap">Chapitre numéro <%= feed_item_chapitre.num_chap %></span>
+  <span class="titre">Titre : <%= feed_item_chapitre.titre %></span>
+  <span class="scene">Scène(s) : <%= feed_item_chapitre.scene %></span>
+  <span class="anecdote">Anecdote(s) : <%= feed_item_chapitre.anecdote %></span>
+  <span class="personne">Personne(s) : <%= feed_item_chapitre.personne %></span>
+  <span class="timestamp">
+    Publié il y a <%= time_ago_in_words(feed_item_chapitre.created_at) %> .
+  </span>
+</li>

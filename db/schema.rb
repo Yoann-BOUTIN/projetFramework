@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528165322) do
+ActiveRecord::Schema.define(version: 20140528173354) do
 
   create_table "anecdotes", force: true do |t|
     t.string   "sujet"
@@ -23,6 +23,19 @@ ActiveRecord::Schema.define(version: 20140528165322) do
   end
 
   add_index "anecdotes", ["sujet", "user_id"], name: "index_anecdotes_on_sujet_and_user_id"
+
+  create_table "chapitres", force: true do |t|
+    t.integer  "num_chap"
+    t.string   "titre"
+    t.string   "scene"
+    t.string   "anecdote"
+    t.string   "personne"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "chapitres", ["num_chap", "user_id"], name: "index_chapitres_on_num_chap_and_user_id"
 
   create_table "personnes", force: true do |t|
     t.string   "nom"

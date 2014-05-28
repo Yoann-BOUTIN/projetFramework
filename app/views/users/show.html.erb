@@ -9,6 +9,15 @@
     </section>
   </aside>
   <div class="span8">
+    <% if @user.chapitres.any? %>
+      <h3>Chapitres (<%= @user.chapitres.count %>)</h3>
+      <ol class="chapitres">
+        <%= render @chapitres %>
+      </ol>
+      <%= will_paginate @chapitres %>
+    <% end %>
+  </div>
+  <div class="span8">
     <% if @user.anecdotes.any? %>
       <h3>Anecdotes (<%= @user.anecdotes.count %>)</h3>
       <ol class="anecdotes">

@@ -66,6 +66,38 @@ describe "Authentication" do
             expect(page).to have_title('Modification utilisateur')
           end
         end
+
+        describe "in the anecdotes controller" do
+
+          describe "submitting to the create action" do
+            before { post anecdotes_path }
+            specify { expect(response).to redirect_to(signin_path) }
+          end
+        end
+
+        describe "in the chapitres controller" do
+
+          describe "submitting to the create action" do
+            before { post chapitres_path }
+            specify { expect(response).to redirect_to(signin_path) }
+          end
+        end
+
+        describe "in the personnes controller" do
+
+          describe "submitting to the create action" do
+            before { post personnes_path }
+            specify { expect(response).to redirect_to(signin_path) }
+          end
+        end
+
+        describe "in the scenes controller" do
+
+          describe "submitting to the create action" do
+            before { post scenes_path }
+            specify { expect(response).to redirect_to(signin_path) }
+          end
+        end
       end
 
       describe "in the Users controller" do

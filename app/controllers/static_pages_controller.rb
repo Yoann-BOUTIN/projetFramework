@@ -24,6 +24,10 @@ class StaticPagesController < ApplicationController
   end
 
   def chapitre
+    if signed_in?
+      @chapitre  = current_user.chapitres.build
+      @feed_items_chapitre = current_user.feed_chapitre.paginate(page: params[:page])
+    end
   end
 
   def personne

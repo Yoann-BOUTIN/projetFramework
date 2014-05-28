@@ -52,10 +52,53 @@ describe "User pages" do
 
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
+    let!(:m1) { FactoryGirl.create(:anecdote, user: user, sujet: "sujet", theme: "theme", texte: "texte") }
+    let!(:m2) { FactoryGirl.create(:anecdote, user: user, sujet: "sujets", theme: "themes", texte: "textes") }
+    let!(:m3) { FactoryGirl.create(:chapitre, user: user, num_chap: "1", titre: "titre", scene: "scene", anecdote: "anecdote", personne: "personne") }
+    let!(:m4) { FactoryGirl.create(:chapitre, user: user, num_chap: "2", titre: "titres", scene: "scenes", anecdote: "anecdotes", personne: "personnes") }
+    let!(:m5) { FactoryGirl.create(:personne, user: user, nom: "nom", first_chap: "1", scene: "scene") }
+    let!(:m6) { FactoryGirl.create(:personne, user: user, nom: "noms", first_chap: "2", scene: "scenes") }
+    let!(:m7) { FactoryGirl.create(:scene, user: user, lieu: "lieu", date: "date", recit: "recit", personne: "personne") }
+    let!(:m8) { FactoryGirl.create(:scene, user: user, lieu: "lieux", date: "dates", recit: "recits", personne: "personnes") }
+
     before { visit user_path(user) }
 
     it { should have_content(user.name) }
     it { should have_title(user.name) }
+
+    describe "anecdotes" do
+      it { should have_content(m1.sujet) }
+      it { should have_content(m1.theme) }
+      it { should have_content(m1.texte) }
+      it { should have_content(m2.sujet) }
+      it { should have_content(m2.theme) }
+      it { should have_content(m2.texte) }
+      it { should have_content(user.anecdotes.count) }
+    end
+
+    describe "chapitres" do
+      it { should have_content(m3.num_chap) }
+      it { should have_content(m3.titre) }
+      it { should have_content(m4.num_chap) }
+      it { should have_content(m4.titre) }
+      it { should have_content(user.chapitres.count) }
+    end
+
+    describe "personnes" do
+      it { should have_content(m5.nom) }
+      it { should have_content(m6.nom) }
+      it { should have_content(user.personnes.count) }
+    end
+
+    describe "scenes" do
+      it { should have_content(m7.lieu) }
+      it { should have_content(m7.recit) }
+      it { should have_content(m7.date) }
+      it { should have_content(m8.lieu) }
+      it { should have_content(m8.recit) }
+      it { should have_content(m8.date) }
+      it { should have_content(user.scenes.count) }
+    end
   end
   describe "signup page" do
     before { visit signup_path }

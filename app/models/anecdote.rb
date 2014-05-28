@@ -1,5 +1,6 @@
 class Anecdote < ActiveRecord::Base
   belongs_to :user
+  belongs_to :chapitre
   default_scope -> { order('sujet DESC') }
   validates :user_id, presence: true
   validates :sujet, presence: true, length: { maximum: 100 }

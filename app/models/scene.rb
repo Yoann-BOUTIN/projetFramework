@@ -1,5 +1,6 @@
 class Scene < ActiveRecord::Base
   belongs_to :user
+  belongs_to :chapitre
   has_many :personnes
   default_scope -> { order('lieu DESC') }
   validates :user_id, presence: true

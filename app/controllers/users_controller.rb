@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     @anecdotes = @user.anecdotes.paginate(page: params[:page])
     @personnes = @user.personnes.paginate(page: params[:page])
     @scenes = @user.scenes.paginate(page: params[:page])
+    @chapitres = @user.chapitres.paginate(page: params[:page])
   end
 
   def new

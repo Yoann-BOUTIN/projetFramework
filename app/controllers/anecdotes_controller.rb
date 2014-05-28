@@ -10,7 +10,8 @@ class AnecdotesController < ApplicationController
       redirect_to :back
     else
       @feed_items = []
-      render 'static_pages/home'
+      flash[:error] = "Vous devez au moins remplir les champs du sujet, du theme et du recit!"
+      redirect_to :back
     end
   end
 

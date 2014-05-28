@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_many :anecdotes, dependent: :destroy
   has_many :personnes, dependent: :destroy
   has_many :scenes, dependent: :destroy
+  has_many :chapitres, dependent: :destroy
   before_save { self.email = email.downcase }
   before_create :create_remember_token
   validates :name, presence: true, length: { maximum: 50 }
@@ -27,6 +28,10 @@ class User < ActiveRecord::Base
 
   def feed_personne
     Personne.where("user_id = ?", id)
+  end
+
+  def feed_chapitre
+    Chapitre.where("user_id = ?", id)
   end
 
  def feed_scene

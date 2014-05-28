@@ -8,7 +8,8 @@ class PersonnesController < ApplicationController
       redirect_to :back
     else
       @feed_items_personne = []
-      render 'static_pages/home'
+      flash[:error] = "Vous devez au moins remplir le champs du nom !"
+      redirect_to :back
     end
   end
 

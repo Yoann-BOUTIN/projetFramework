@@ -4,6 +4,7 @@ BoutinYoannFrameworkProject::Application.routes.draw do
   resources :anecdotes, only: [:create]
   resources :personnes, only: :create
   resources :scenes, only: :create
+  resources :chapitres, only: :create
   root 'static_pages#home'
   match '/edit_user', to: 'users#edit', via: 'get'
   match '/signup', to: 'users#new', via: 'get'
